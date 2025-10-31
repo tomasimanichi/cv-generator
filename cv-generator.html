@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Gerador de Currículo</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <main class="container">
+    <h1>Meu Currículo Online</h1>
+    <form id="curriculo-form">
+      <section class="dados-pessoais">
+        <h2>Dados Pessoais</h2>
+        <label>Nome: <input type="text" name="nome" required></label><br>
+        <label>Data de Nascimento: <input type="date" name="nascimento" required></label><br>
+        <label>E-mail: <input type="email" name="email" required></label><br>
+        <label>Telefone: <input type="tel" name="telefone"></label><br>
+      </section>
+      <section class="formacao">
+        <h2>Formação Acadêmica</h2>
+        <label>Curso: <input type="text" name="curso"></label><br>
+        <label>Instituição: <input type="text" name="instituicao"></label><br>
+      </section>
+      <section class="experiencia">
+        <h2>Experiências Profissionais</h2>
+        <label>Empresa: <input type="text" name="empresa"></label><br>
+        <label>Cargo: <input type="text" name="cargo"></label><br>
+        <label>Período: <input type="text" name="periodo"></label><br>
+      </section>
+      <section class="habilidades">
+        <h2>Habilidades</h2>
+        <input type="text" name="habilidades" placeholder="Ex: HTML, CSS, PHP">
+      </section>
+      <section class="contato">
+        <h2>Contato</h2>
+        <label>LinkedIn: <input type="text" name="linkedin"></label><br>
+        <label>GitHub: <input type="text" name="github"></label><br>
+      </section>
+      <button type="submit">Gerar Currículo</button>
+    </form>
+  </main>
+</body>
+</html>
