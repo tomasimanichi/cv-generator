@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Gerador de Currículo</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <main class="container">
+    <h1>Meu Currículo Online</h1>
+    <form id="curriculo-form">
+    <section class="dados-pessoais">
+      <h2>Dados Pessoais</h2>
+      <label>Nome: <input type="text" name="nome" required></label><br>
+      <label>Data de Nascimento: <input type="date" name="nascimento" id="nascimento" required></label><br>
+      <label>Idade: <input type="text" id="idade" readonly></label><br>
+      <label>E-mail: <input type="email" name="email" required></label><br>
+</section>
+
+      <section class="formacao">
+        <h2>Formação Acadêmica</h2>
+        <label>Curso: <input type="text" name="curso"></label><br>
+        <label>Instituição: <input type="text" name="instituicao"></label><br>
+      </section>
+
+     <section class="experiencia">
+        <h2>Experiências Profissionais</h2>
+        <div id="experiencia-campos">
+        <div class="exp-item">
+        <label>Empresa: <input type="text" name="empresa[]"></label>
+        <label>Cargo: <input type="text" name="cargo[]"></label>
+        <label>Período: <input type="text" name="periodo[]"></label>
+        <button type="button" class="remover-exp" style="display:none">Remover</button>
+    </div>
+  </div>
+
+  <button type="button" id="adicionar-experiencia">+ Adicionar experiência</button>
+</section>
+
+      <section class="habilidades">
+        <h2>Habilidades</h2>
+        <input type="text" name="habilidades" placeholder="Ex: HTML, CSS, PHP">
+      </section>
+      <section class="contato">
+        <h2>Contato</h2>
+        <label>LinkedIn: <input type="text" name="linkedin"></label><br>
+        <label>GitHub: <input type="text" name="github"></label><br>
+      </section>
+
+      <button type="submit">Gerar Currículo</button>
+    
+    </form>
+  </main>
+
+  <script>
+
+const container = document.getElementById('experiencia-campos');
+const btnAdd = document.getElementById('adicionar-experiencia');
+
+btnAdd.addEventListener('click', function() {
+  const novo = document.createElement('div');
+  novo.className = 'exp-item';
+  novo.innerHTML = `
+    <label>Empresa: <input type="text" name="empresa[]"></label>
+    <label>Cargo: <input type="text" name="cargo[]"></label>
+    <label>Período: <input type="text" name="periodo[]"></label>
+    <button type="button" class="remover-exp">Remover</button>
+  `;
+  container.appendChild(novo);
+  atualizarBotoesRemover();
+});
+
+function atualizarBotoesRemover() {
+  const expItems = container.getElementsByClassName('exp-item');
+  for (let i = 0; i < expItems.length; i++) {
+    const btn = expItems[i].querySelector('.remover-exp');
+    if (btn) btn.style.display = (i === 0) ? 'none' : 'inline-block';
+    if (btn) btn.onclick = function() {
+      expItems[i].remove();
+    };
+  }
+}
+
+atualizarBotoesRemover();
+
+const nascimento = document.getElementById('nascimento');
+const idade = document.getElementById('idade');
+nascimento.addEventListener('change', function() {
+  const nasc = new Date(this.value);
+  const hoje = new Date();
+  let anos = hoje.getFullYear() - nasc.getFullYear();
+  const m = hoje.getMonth() - nasc.getMonth();
+  if (m < 0 || (m === 0 && hoje.getDate() < nasc.getDate())) {
+    anos--;
+  }
+  idade.value = anos;
+});
+</script>
+
+</body>
+</html>
