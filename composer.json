@@ -1,5 +1,5 @@
 {
-    "name":"Tomás/cv-generator",
+    "name":"tomas/cv-generator",
     "description":"Gerador de Currículos PHP - Projeto APO UNIPAR",
     "type":"project",
     "require": {
