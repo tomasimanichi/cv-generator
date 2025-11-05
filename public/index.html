@@ -1,11 +1,21 @@
 <!DOCTYPE html>
+<!-- 
+    Gerador de Currículo Online
+    - Permite criar currículos profissionais de forma dinâmica
+    - Usa Bootstrap 5.3.0 para layout responsivo
+    - Usa jQuery para manipulação do DOM e campos dinâmicos
+    - Utiliza Font Icons do Bootstrap para ícones
+-->
 <html lang="pt-br">
 <head>
   <title>Gerador de Currículo</title>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width= device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Estilos customizados -->
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
@@ -22,8 +32,10 @@
         </div>
     </header>
 
+    <!-- Conteúdo principal -->
     <main class="container-fluid my-4">
         <div class="site-wrap mx-auto">
+        <!-- Navegação por abas - cada aba representa uma seção do currículo -->
         <ul class="nav nav-tabs mb-4" id="mainTabs" role="tablist">
             <li class="nav-item" role="presentation">
                 <button class="nav-link active" id="personal-tab" data-bs-toggle="tab" data-bs-target="#personal" type="button" role="tab">
@@ -48,8 +60,11 @@
         </ul>
 
         <div class="tab-content" id="mainTabContent">
+            <!-- Aba de Dados Pessoais -->
             <div class="tab-pane fade show active" id="personal" role="tabpanel">
+                <!-- Formulário principal com validação HTML5 -->
                 <form id="personalForm" novalidate>
+                    <!-- Seção de Dados Pessoais -->
                     <div class="card mb-4">
                         <div class="card-header">
                             <h5 class="mb-0"><i class="bi bi-person-circle"></i> Dados Pessoais</h5>
@@ -100,17 +115,22 @@
                         </div>
                     </div>
 
+                    <!-- Seção de Formação Acadêmica -->
                     <div class="card mb-4">
                         <div class="card-header d-flex justify-content-between align-items-center">
                             <h5 class="mb-0"><i class="bi bi-mortarboard"></i> Formação Acadêmica</h5>
+                            <!-- Botão para adicionar mais campos de formação -->
                             <button type="button" class="btn btn-sm btn-success" id="addEducationBtn">
                                 <i class="bi bi-plus-circle"></i> Adicionar Formação
                             </button>
                         </div>
                         <div class="card-body">
+                            <!-- Lista de formações acadêmicas -->
                             <div id="educationList">
+                                <!-- Campo inicial de formação acadêmica -->
                                 <div class="education-group card mb-3">
                                     <div class="card-body">
+                                        <!-- Botão para remover esta formação -->
                                         <button type="button" class="btn btn-danger btn-sm float-end remove-education">
                                             <i class="bi bi-trash"></i>
                                         </button>
@@ -157,18 +177,23 @@
                 </form>
             </div>
 
+            <!-- Aba de Experiências Profissionais -->
             <div class="tab-pane fade" id="experience" role="tabpanel">
                 <div class="card mb-4">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <h5 class="mb-0"><i class="bi bi-briefcase"></i> Experiências Profissionais</h5>
+                        <!-- Botão para adicionar mais campos de experiência -->
                         <button type="button" class="btn btn-sm btn-success" id="addExperienceBtn">
                             <i class="bi bi-plus-circle"></i> Adicionar Experiência
                         </button>
                     </div>
                     <div class="card-body">
+                        <!-- Lista de experiências profissionais -->
                         <div id="experiencesList">
+                            <!-- Campo inicial de experiência profissional -->
                             <div class="experience-group card mb-3">
                                 <div class="card-body">
+                                    <!-- Botão para remover esta experiência -->
                                     <button type="button" class="btn btn-danger btn-sm float-end remove-experience">
                                         <i class="bi bi-trash"></i>
                                     </button>
@@ -212,18 +237,23 @@
                 </div>
             </div>
 
+            <!-- Aba de Referências Pessoais -->
             <div class="tab-pane fade" id="references" role="tabpanel">
                 <div class="card mb-4">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <h5 class="mb-0"><i class="bi bi-people"></i> Referências Pessoais</h5>
+                        <!-- Botão para adicionar mais campos de referência -->
                         <button type="button" class="btn btn-sm btn-success" id="addReferenceBtn">
                             <i class="bi bi-plus-circle"></i> Adicionar Referência
                         </button>
                     </div>
                     <div class="card-body">
+                        <!-- Lista de referências pessoais -->
                         <div id="referencesList">
+                            <!-- Campo inicial de referência -->
                             <div class="reference-group card mb-3">
                                 <div class="card-body">
+                                    <!-- Botão para remover esta referência -->
                                     <button type="button" class="btn btn-danger btn-sm float-end remove-reference">
                                         <i class="bi bi-trash"></i>
                                     </button>
@@ -268,14 +298,18 @@
                 </div>
             </div>
 
+            <!-- Aba de Preview do Currículo -->
             <div class="tab-pane fade" id="preview" role="tabpanel">
                 <div class="card mb-4">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <h5 class="mb-0"><i class="bi bi-eye"></i> Preview do Currículo</h5>
+                        <!-- Botões de ação para o currículo -->
                         <div>
+                            <!-- Botão para gerar PDF -->
                             <button type="button" class="btn btn-sm btn-primary" id="generatePdfBtn">
                                 <i class="bi bi-file-pdf"></i> Gerar PDF
                             </button>
+                            <!-- Botão para imprimir -->
                             <button type="button" class="btn btn-sm btn-outline-primary" id="printBtn">
                                 <i class="bi bi-printer"></i> Imprimir
                             </button>
@@ -328,7 +362,7 @@
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script src="assets/js/age-calculator.js"></script>
     <script src="assets/js/dynamic-fields.js"></script>
+    <script src="assets/js/main.js"></script>
     <script src="app.js"></script>
-</body>
 </body>
 </html>
