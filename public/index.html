@@ -1,102 +1,245 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
   <title>Gerador de Currículo</title>
-  <link rel="stylesheet" href="assets/css/style.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width= device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-  <main class="container">
-    <h1>Meu Currículo Online</h1>
-    <form id="curriculo-form">
-    <section class="dados-pessoais">
-      <h2>Dados Pessoais</h2>
-      <label>Nome: <input type="text" name="nome" required></label><br>
-      <label>Data de Nascimento: <input type="date" name="nascimento" id="nascimento" required></label><br>
-      <label>Idade: <input type="text" id="idade" readonly></label><br>
-      <label>E-mail: <input type="email" name="email" required></label><br>
-</section>
+    <header class="header-main">
+        <div class="container-fluid">
+            <div class="site-wrap mx-auto">
+                <div class="d-flex justify-content-between align-items-center py-3">
+                    <div>
+                        <h1 class="h1 mb-0"><i class="bi bi-file-earmark-text"></i> Meu Currículo Online </h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 
-      <section class="formacao">
-        <h2>Formação Acadêmica</h2>
-        <label>Curso: <input type="text" name="curso"></label><br>
-        <label>Instituição: <input type="text" name="instituicao"></label><br>
-      </section>
+    <main class="container-fluid my-4">
+        <div class="site-wrap mx-auto">
+        <ul class="nav nav-tabs mb-4" id="mainTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="personal-tab" data-bs-toggle="tab" data-bs-target="#personal" type="button" role="tab">
+                    <i class="bi bi-person"></i> Dados Pessoais
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="experience-tab" data-bs-toggle="tab" data-bs-target="#experience" type="button" role="tab">
+                    <i class="bi bi-briefcase"></i> Experiências
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="references-tab" data-bs-toggle="tab" data-bs-target="#references" type="button" role="tab">
+                    <i class="bi bi-people"></i> Referências
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="preview-tab" data-bs-toggle="tab" data-bs-target="#preview" type="button" role="tab">
+                    <i class="bi bi-eye"></i> Prévia
+                </button>
+            </li>
+        </ul>
 
-     <section class="experiencia">
-        <h2>Experiências Profissionais</h2>
-        <div id="experiencia-campos">
-        <div class="exp-item">
-        <label>Empresa: <input type="text" name="empresa[]"></label>
-        <label>Cargo: <input type="text" name="cargo[]"></label>
-        <label>Período: <input type="text" name="periodo[]"></label>
-        <button type="button" class="remover-exp" style="display:none">Remover</button>
+        <div class="tab-content" id="mainTabContent">
+            <div class="tab-pane fade show active" id="personal" role="tabpanel">
+                <form id="personalForm" novalidate>
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="bi bi-person-circle"></i> Dados Pessoais</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-8 mb-3">
+                                    <label for="fullName" class="form-label">Nome Completo <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="fullName" required placeholder="Digite seu nome completo">
+                                    <div class="invalid-feedback">Este campo é obrigatório</div>
+                                    <div class="valid-feedback"><i class="bi bi-check-circle"></i> Válido</div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="dob" class="form-label">Data de Nascimento <span class="text-danger">*</span></label>
+                                    <input type="date" class="form-control" id="dob" required>
+                                    <div class="invalid-feedback">Data inválida</div>
+                                    <div class="valid-feedback"><i class="bi bi-check-circle"></i> Válido</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <label for="age" class="form-label">Idade <i class="bi bi-info-circle" data-bs-toggle="tooltip" title="Calculada automaticamente"></i></label>
+                                    <input type="number" class="form-control" id="age" readonly placeholder="Auto">
+                                </div>
+                                <div class="col-md-8 mb-3">
+                                    <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+                                    <input type="email" class="form-control" id="email" required placeholder="seu@email.com">
+                                    <div class="invalid-feedback">Digite um email válido</div>
+                                    <div class="valid-feedback"><i class="bi bi-check-circle"></i> Válido</div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="phone" class="form-label">Telefone <span class="text-danger">*</span></label>
+                                    <input type="tel" class="form-control" id="phone" required placeholder="(99) 99999-9999">
+                                    <div class="invalid-feedback">Digite um telefone válido</div>
+                                    <div class="valid-feedback"><i class="bi bi-check-circle"></i> Válido</div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="address" class="form-label">Endereço</label>
+                                <textarea class="form-control" id="address" rows="2" placeholder="Rua, número, bairro, cidade/estado"></textarea>
+                                <small class="text-muted"><span id="addressCount">0</span>/200 caracteres</small>
+                            </div>
+                            <div class="mb-3">
+                                <label for="objective" class="form-label">Objetivo Profissional</label>
+                                <textarea class="form-control" id="objective" rows="3" placeholder="Descreva seus objetivos profissionais..."></textarea>
+                                <small class="text-muted"><span id="objectiveCount">0</span>/500 caracteres</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="bi bi-mortarboard"></i> Formação Acadêmica</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="course" class="form-label">Curso</label>
+                                    <input type="text" class="form-control" id="course" placeholder="Nome do curso">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="institution" class="form-label">Instituição</label>
+                                    <input type="text" class="form-control" id="institution" placeholder="Nome da instituição">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <label for="graduationYear" class="form-label">Ano de Conclusão</label>
+                                    <input type="number" class="form-control" id="graduationYear" min="1950" max="2030" placeholder="2025">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-end">
+                        <button type="button" class="btn btn-primary" id="nextToExperience">
+                            Próximo <i class="bi bi-arrow-right"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="tab-pane fade" id="experience" role="tabpanel">
+                <div class="card mb-4">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0"><i class="bi bi-briefcase"></i> Experiências Profissionais</h5>
+                        <button type="button" class="btn btn-sm btn-success" id="addExperienceBtn">
+                            <i class="bi bi-plus-circle"></i> Adicionar Experiência
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <div id="experiencesList">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <button type="button" class="btn btn-outline-secondary" id="backToPersonal">
+                        <i class="bi bi-arrow-left"></i> Anterior
+                    </button>
+                    <button type="button" class="btn btn-primary" id="nextToReferences">
+                        Próximo <i class="bi bi-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="references" role="tabpanel">
+                <div class="card mb-4">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0"><i class="bi bi-people"></i> Referências Pessoais</h5>
+                        <button type="button" class="btn btn-sm btn-success" id="addReferenceBtn">
+                            <i class="bi bi-plus-circle"></i> Adicionar Referência
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <div id="referencesList">
+                        </div>
+                        <p class="text-muted small mb-0"><i class="bi bi-info-circle"></i> As referências são opcionais</p>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <button type="button" class="btn btn-outline-secondary" id="backToExperience">
+                        <i class="bi bi-arrow-left"></i> Anterior
+                    </button>
+                    <button type="button" class="btn btn-primary" id="goToPreview">
+                        Ver Preview <i class="bi bi-eye"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="preview" role="tabpanel">
+                <div class="card mb-4">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0"><i class="bi bi-eye"></i> Preview do Currículo</h5>
+                        <div>
+                            <button type="button" class="btn btn-sm btn-primary" id="generatePdfBtn">
+                                <i class="bi bi-file-pdf"></i> Gerar PDF
+                            </button>
+                            <button type="button" class="btn btn-sm btn-outline-primary" id="printBtn">
+                                <i class="bi bi-printer"></i> Imprimir
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div id="cvPreview" class="cv-preview">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <button type="button" class="btn btn-outline-secondary" id="backToReferences">
+                        <i class="bi bi-arrow-left"></i> Anterior
+                    </button>
+                    <button type="button" class="btn btn-success" id="backToFormBtn">
+                        <i class="bi bi-pencil"></i> Voltar ao Formulário
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer-main mt-5">
+        <div class="container-fluid">
+            <div class="site-wrap mx-auto">
+                <div class="text-center py-3">
+                    <p class="mb-0 text-muted small">
+                        <i class="bi bi-mortarboard"></i> Projeto APO - Fundamentos de Programação para Internet - UNIPAR EAD
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="toastNotification" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <i class="bi bi-check-circle-fill text-success me-2" id="toastIcon"></i>
+                <strong class="me-auto" id="toastTitle">Sucesso</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body" id="toastBody">
+                Mensagem de notificação
+            </div>
+        </div>
     </div>
-  </div>
 
-  <button type="button" id="adicionar-experiencia">+ Adicionar experiência</button>
-</section>
-
-      <section class="habilidades">
-        <h2>Habilidades</h2>
-        <input type="text" name="habilidades" placeholder="Ex: HTML, CSS, PHP">
-      </section>
-      <section class="contato">
-        <h2>Contato</h2>
-        <label>LinkedIn: <input type="text" name="linkedin"></label><br>
-        <label>GitHub: <input type="text" name="github"></label><br>
-      </section>
-
-      <button type="submit">Gerar Currículo</button>
-    
-    </form>
-  </main>
-
-  <script>
-
-const container = document.getElementById('experiencia-campos');
-const btnAdd = document.getElementById('adicionar-experiencia');
-
-btnAdd.addEventListener('click', function() {
-  const novo = document.createElement('div');
-  novo.className = 'exp-item';
-  novo.innerHTML = `
-    <label>Empresa: <input type="text" name="empresa[]"></label>
-    <label>Cargo: <input type="text" name="cargo[]"></label>
-    <label>Período: <input type="text" name="periodo[]"></label>
-    <button type="button" class="remover-exp">Remover</button>
-  `;
-  container.appendChild(novo);
-  atualizarBotoesRemover();
-});
-
-function atualizarBotoesRemover() {
-  const expItems = container.getElementsByClassName('exp-item');
-  for (let i = 0; i < expItems.length; i++) {
-    const btn = expItems[i].querySelector('.remover-exp');
-    if (btn) btn.style.display = (i === 0) ? 'none' : 'inline-block';
-    if (btn) btn.onclick = function() {
-      expItems[i].remove();
-    };
-  }
-}
-
-atualizarBotoesRemover();
-
-const nascimento = document.getElementById('nascimento');
-const idade = document.getElementById('idade');
-nascimento.addEventListener('change', function() {
-  const nasc = new Date(this.value);
-  const hoje = new Date();
-  let anos = hoje.getFullYear() - nasc.getFullYear();
-  const m = hoje.getMonth() - nasc.getMonth();
-  if (m < 0 || (m === 0 && hoje.getDate() < nasc.getDate())) {
-    anos--;
-  }
-  idade.value = anos;
-});
-</script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="app.js"></script>
+</body>
 </body>
 </html>
