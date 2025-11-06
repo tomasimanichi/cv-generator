@@ -1,7 +1,12 @@
-# .gitignore
+
 vendor/
 node_modules/
 *.log
 .env
 .DS_Store
-Thumbs.dbvar/
+Thumbs.db
+var/
+.vscode/
+.idea/
+*.swp
+*.swo
