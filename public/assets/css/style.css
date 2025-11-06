@@ -87,3 +87,52 @@ h2 {
     font-size: 1.2em;
   }
 }
+
+/* Abas */
+.nav-tabs .nav-link {
+    color: #356dad;
+    border: none;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-tabs .nav-link.active {
+    color: #1a3559;
+    border-bottom: 2px solid #1a3559;
+    background: none;
+}
+
+/* Cards */
+.card {
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.card-header {
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+/* Validação */
+.form-control.is-invalid {
+    border-color: #dc3545;
+}
+
+.form-control.is-valid {
+    border-color: #28a745;
+}
+
+/* Mensagens */
+.toast {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .container {
+        padding: 16px !important;
+    }
+    
+    .nav-tabs {
+        flex-wrap: wrap;
+    }
+}
