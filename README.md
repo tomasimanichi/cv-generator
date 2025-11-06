@@ -9,7 +9,7 @@ Aplicação web para gerar currículos profissionais em PDF, desenvolvida como p
 - Bootstrap 5
 - mPDF (geração de PDF)
 - Composer
-
+  
 ## Instalação
 
 1. Clone ou baixe o projeto
@@ -26,4 +26,4 @@ Aplicação web para gerar currículos profissionais em PDF, desenvolvida como p
 
 ## Autor
 
-Tomás do Amaral - tomas@gmail.com
+Tomás do Amaral - tomasdoamaral@gmail.com
