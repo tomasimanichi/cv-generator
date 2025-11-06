@@ -172,11 +172,10 @@
                         </div>
                     </div>
 
-                    <div class="d-flex justify-content-end">
-                        <button type="button" class="btn btn-primary" id="nextToExperience">
-                            Próximo <i class="bi bi-arrow-right"></i>
-                        </button>
-                    </div>
+                <div class="d-flex justify-content-between mt-4">
+                    <button type="button" class="btn btn-secondary" disabled>Anterior</button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="tab" data-bs-target="#experiencias">Próximo</button>
+                </div>
                 </form>
             </div>
 
@@ -230,14 +229,11 @@
                     </div>
                 </div>
 
-                <div class="d-flex justify-content-between">
-                    <button type="button" class="btn btn-outline-secondary" id="backToPersonal">
-                        <i class="bi bi-arrow-left"></i> Anterior
-                    </button>
-                    <button type="button" class="btn btn-primary" id="nextToReferences">
-                        Próximo <i class="bi bi-arrow-right"></i>
-                    </button>
+                <div class="d-flex justify-content-between mt-4 p-3">
+                    <button type="button" class="btn btn-secondary" data-bs-toggle="tab" data-bs-target="#dados-pessoais">Anterior</button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="tab" data-bs-target="#referencias">Próximo</button>
                 </div>
+
             </div>
 
             <!-- Aba de Referências Pessoais -->
@@ -291,13 +287,9 @@
                     </div>
                 </div>
 
-                <div class="d-flex justify-content-between">
-                    <button type="button" class="btn btn-outline-secondary" id="backToExperience">
-                        <i class="bi bi-arrow-left"></i> Anterior
-                    </button>
-                    <button type="button" class="btn btn-primary" id="goToPreview">
-                        Ver Preview <i class="bi bi-eye"></i>
-                    </button>
+                <div class="d-flex justify-content-between mt-4 p-3">
+                    <button type="button" class="btn btn-secondary" data-bs-toggle="tab" data-bs-target="#experiencias">Anterior</button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="tab" data-bs-target="#preview">Ver Preview</button>
                 </div>
             </div>
 
@@ -309,13 +301,13 @@
                         <!-- Botões de ação para o currículo -->
                         <div>
                             <!-- Botão para gerar PDF -->
-                            <button type="button" class="btn btn-sm btn-primary" id="generatePdfBtn">
+                             <button type="submit" class="btn btn-success me-2">
                                 <i class="bi bi-file-pdf"></i> Gerar PDF
                             </button>
                             <!-- Botão para imprimir -->
-                            <button type="button" class="btn btn-sm btn-outline-primary" id="printBtn">
-                                <i class="bi bi-printer"></i> Imprimir
-                            </button>
+                             <button type="button" class="btn btn-info" onclick="window.print()">
+                                 <i class="bi bi-printer"></i> Imprimir
+                             </button>
                         </div>
                     </div>
                     <div class="card-body">
@@ -325,8 +317,7 @@
                 </div>
 
                 <div class="d-flex justify-content-between">
-                    <button type="button" class="btn btn-outline-secondary" id="backToReferences">
-                        <i class="bi bi-arrow-left"></i> Anterior
+                     <button type="button" class="btn btn-secondary" data-bs-toggle="tab" data-bs-target="#referencias">Anterior
                     </button>
                     <button type="button" class="btn btn-success" id="backToFormBtn">
                         <i class="bi bi-pencil"></i> Voltar ao Formulário
