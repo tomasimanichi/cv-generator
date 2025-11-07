@@ -25,13 +25,15 @@ document.addEventListener('input', function (e) {
 
 	var value = target.value.replace(/\D/g, '');
 
-	if (value.length > 2) {
-		value = value.replace(/^([0-9]{2})([0-9]+)$/, '($1) $2');
-		if (value.replace(/\D/g, '').length > 10) {
-			value = value.replace(/(\d{2})\D*(\d{5})(\d{4})/, '($1) $2-$3');
-		} else {
-			value = value.replace(/(\d{2})\D*(\d{4})(\d{4})/, '($1) $2-$3');
-		}
+	if (value.length > 10) {
+		// Celular: (99) 99999-9999
+		value = value.replace(/^(\d{2})(\d{5})(\d{4}).*/, '($1) $2-$3');
+	} else if (value.length > 6) {
+		// Fixo: (99) 9999-9999
+		value = value.replace(/^(\d{2})(\d{4})(\d{0,4}).*/, '($1) $2-$3');
+	} else if (value.length > 2) {
+		// Apenas DDD
+		value = value.replace(/^(\d{2})(\d{0,5})/, '($1) $2');
 	}
 
 	target.value = value;
