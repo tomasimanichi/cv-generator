@@ -60,13 +60,11 @@
         </ul>
 
         <form id="curriculo-form" action="generate.php" method="POST" class="needs-validation" novalidate>
-
         <div class="tab-content" id="mainTabContent">
             <!-- Aba de Dados Pessoais -->
             <div class="tab-pane fade show active" id="personal" role="tabpanel">
                 <!-- Formulário principal com validação HTML5 -->
                 <!-- A classe `needs-validation` ativa o script de validação (Bootstrap) em assets/js/main.js -->
-                <form id="personalForm" class="needs-validation" novalidate>
                     <!-- Seção de Dados Pessoais -->
                     <div class="card mb-4">
                         <div class="card-header">
@@ -172,12 +170,10 @@
                         </div>
                     </div>
 
-                <div class="d-flex justify-content-between mt-4">
+                <div class="d-flex justify-content-between mt-4 p-3">
                     <button type="button" class="btn btn-secondary" disabled>Anterior</button>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="tab" data-bs-target="#experience">Próximo</button>
+                    <button type="button" class="btn btn-primary" id="btnNextToExperience">Próximo</button>
                 </div>
-
-                </form>
             </div>
 
             <!-- Aba de Experiências Profissionais -->
@@ -231,8 +227,8 @@
                 </div>
 
                 <div class="d-flex justify-content-between mt-4 p-3">
-                    <button type="button" class="btn btn-secondary" data-bs-toggle="tab" data-bs-target="#personal">Anterior</button>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="tab" data-bs-target="#references">Próximo</button>
+                    <button type="button" class="btn btn-secondary" id="btnBackToPersonal">Anterior</button>
+                    <button type="button" class="btn btn-primary" id="btnNextToReferences">Próximo</button>
                 </div>
 
             </div>
@@ -289,8 +285,8 @@
                 </div>
 
                 <div class="d-flex justify-content-between mt-4 p-3">
-                    <button type="button" class="btn btn-secondary" data-bs-toggle="tab" data-bs-target="#experience">Anterior</button>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="tab" data-bs-target="#preview">Ver Preview</button>
+                    <button type="button" class="btn btn-secondary" id="btnBackToExperience">Anterior</button>
+                    <button type="button" class="btn btn-primary" id="btnNextToPreview">Ver Preview</button>
                 </div>
             </div>
 
@@ -318,7 +314,7 @@
                 </div>
 
                 <div class="d-flex justify-content-between">
-                    <button type="button" class="btn btn-secondary" data-bs-toggle="tab" data-bs-target="#references">Anterior
+                    <button type="button" class="btn btn-secondary" id="btnBackToReferences">Anterior
                     </button>
                     <button type="button" class="btn btn-success" id="backToFormBtn">
                         <i class="bi bi-pencil"></i> Voltar ao Formulário

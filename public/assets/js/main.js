@@ -76,3 +76,70 @@ function showNotification(msg, type) {
     setTimeout(() => toast.classList.remove('show'), 3000);
 }
 
+// Navegação entre abas
+document.addEventListener('DOMContentLoaded', function() {
+    // Botões de navegação
+    const btnNextToExperience = document.getElementById('btnNextToExperience');
+    const btnBackToPersonal = document.getElementById('btnBackToPersonal');
+    const btnNextToReferences = document.getElementById('btnNextToReferences');
+    const btnBackToExperience = document.getElementById('btnBackToExperience');
+    const btnNextToPreview = document.getElementById('btnNextToPreview');
+    const btnBackToReferences = document.getElementById('btnBackToReferences');
+    const backToFormBtn = document.getElementById('backToFormBtn');
+
+    // Tabs
+    const personalTab = new bootstrap.Tab(document.getElementById('personal-tab'));
+    const experienceTab = new bootstrap.Tab(document.getElementById('experience-tab'));
+    const referencesTab = new bootstrap.Tab(document.getElementById('references-tab'));
+    const previewTab = new bootstrap.Tab(document.getElementById('preview-tab'));
+
+    // Navegação: Dados Pessoais -> Experiências
+    if (btnNextToExperience) {
+        btnNextToExperience.addEventListener('click', function() {
+            experienceTab.show();
+        });
+    }
+
+    // Navegação: Experiências -> Dados Pessoais
+    if (btnBackToPersonal) {
+        btnBackToPersonal.addEventListener('click', function() {
+            personalTab.show();
+        });
+    }
+
+    // Navegação: Experiências -> Referências
+    if (btnNextToReferences) {
+        btnNextToReferences.addEventListener('click', function() {
+            referencesTab.show();
+        });
+    }
+
+    // Navegação: Referências -> Experiências
+    if (btnBackToExperience) {
+        btnBackToExperience.addEventListener('click', function() {
+            experienceTab.show();
+        });
+    }
+
+    // Navegação: Referências -> Preview
+    if (btnNextToPreview) {
+        btnNextToPreview.addEventListener('click', function() {
+            previewTab.show();
+        });
+    }
+
+    // Navegação: Preview -> Referências
+    if (btnBackToReferences) {
+        btnBackToReferences.addEventListener('click', function() {
+            referencesTab.show();
+        });
+    }
+
+    // Botão "Voltar ao Formulário" na aba de preview
+    if (backToFormBtn) {
+        backToFormBtn.addEventListener('click', function() {
+            personalTab.show();
+        });
+    }
+});
+
