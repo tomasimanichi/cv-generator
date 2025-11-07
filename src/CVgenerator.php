@@ -73,6 +73,7 @@ class CVGenerator
      */
     private function fillTemplate(string $template): string
     {
+        // Campos simples (não arrays)
         $replaceMap = [
             '{{name}}' => $this->data['name'] ?? '',
             '{{email}}' => $this->data['email'] ?? '',
@@ -80,21 +81,64 @@ class CVGenerator
             '{{address}}' => $this->data['address'] ?? '',
             '{{objective}}' => $this->data['objective'] ?? '',
             '{{age}}' => $this->data['age'] ?? '',
-            '{{course}}' => $this->data['course'] ?? '',
-            '{{institution}}' => $this->data['institution'] ?? '',
-            '{{graduation_year}}' => $this->data['graduation_year'] ?? '',
+            '{{generation_date}}' => date('d/m/Y \à\s H:i'),
         ];
 
         // Substitui campos simples
         foreach ($replaceMap as $key => $value) {
-            $template = str_replace($key, htmlspecialchars($value), $template);
+            // Apenas aplica htmlspecialchars se for string
+            $safeValue = is_string($value) ? htmlspecialchars($value) : $value;
+            $template = str_replace($key, $safeValue, $template);
         }
 
-        // Processa experiências e referências
+        // Processa seções dinâmicas
+        $template = str_replace('{{education}}', $this->buildEducation(), $template);
         $template = str_replace('{{experiences}}', $this->buildExperiences(), $template);
         $template = str_replace('{{references}}', $this->buildReferences(), $template);
 
         return $template;
+    }
+
+    /**
+     * Constrói o HTML da formação acadêmica
+     *
+     * @return string
+     */
+    private function buildEducation(): string
+    {
+        $html = '';
+        if (empty($this->data['course']) || !is_array($this->data['course'])) {
+            return $html;
+        }
+
+        $courses = $this->data['course'];
+        $institutions = $this->data['institution'] ?? [];
+        $levels = $this->data['education_level'] ?? [];
+        $years = $this->data['graduation_year'] ?? [];
+
+        foreach ($courses as $index => $course) {
+            if (empty(trim($course))) {
+                continue;
+            }
+
+            $institution = $institutions[$index] ?? '';
+            $level = $levels[$index] ?? '';
+            $year = $years[$index] ?? '';
+
+            $html .= "<div class='education-item'>\n";
+            $html .= "<h4>" . htmlspecialchars($course) . "</h4>\n";
+            $html .= "<p>" . htmlspecialchars($institution);
+            if (!empty($level)) {
+                $html .= " - " . htmlspecialchars($level);
+            }
+            if (!empty($year)) {
+                $html .= " (" . htmlspecialchars($year) . ")";
+            }
+            $html .= "</p>\n";
+            $html .= "</div>\n";
+        }
+
+        return $html;
     }
 
     /**

@@ -128,49 +128,41 @@
         </div>
         
         <!-- Objetivo Profissional -->
-        {{#if objective}}
         <div class="section">
             <h2>Objetivo Profissional</h2>
             <div class="section-content">
                 <p>{{objective}}</p>
             </div>
         </div>
-        {{/if}}
         
         <!-- Formação Acadêmica -->
-        {{#if course}}
         <div class="section">
             <h2>Formação Acadêmica</h2>
-            <div class="section-content education-item">
-                <h4>{{course}}</h4>
-                <p class="institution">{{institution}} - {{graduation_year}}</p>
+            <div class="section-content">
+                {{education}}
             </div>
         </div>
-        {{/if}}
         
         <!-- Experiência Profissional -->
-        {{#if company}}
         <div class="section">
             <h2>Experiência Profissional</h2>
             <div class="section-content">
                 {{experiences}}
             </div>
         </div>
-        {{/if}}
         
         <!-- Referências -->
-        {{#if ref_name}}
         <div class="section">
             <h2>Referências</h2>
             <div class="section-content">
                 {{references}}
             </div>
         </div>
-        {{/if}}
+        
         
         <!-- Rodapé -->
         <div class="footer">
-            <p>Currículo gerado em <?php echo date('d/m/Y \à\s H:i'); ?></p>
+            <p>Currículo gerado em {{generation_date}}</p>
         </div>
     </div>
 </body>
