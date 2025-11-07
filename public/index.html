@@ -74,13 +74,13 @@
                             <div class="row">
                                 <div class="col-md-8 mb-3">
                                     <label for="fullName" class="form-label">Nome Completo <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" id="fullName" required placeholder="Digite seu nome completo">
+                                    <input type="text" class="form-control" id="fullName" name="name" required placeholder="Digite seu nome completo">
                                     <div class="invalid-feedback">Este campo é obrigatório</div>
                                     <div class="valid-feedback"><i class="bi bi-check-circle"></i> Válido</div>
                                 </div>
                                 <div class="col-md-4 mb-3">
                                     <label for="dob" class="form-label">Data de Nascimento <span class="text-danger">*</span></label>
-                                    <input type="date" class="form-control" id="dob" required>
+                                    <input type="date" class="form-control" id="dob" name="dob" required>
                                     <div class="invalid-feedback">Data inválida</div>
                                     <div class="valid-feedback"><i class="bi bi-check-circle"></i> Válido</div>
                                 </div>
@@ -88,29 +88,29 @@
                             <div class="row">
                                 <div class="col-md-4 mb-3">
                                     <label for="age" class="form-label">Idade <i class="bi bi-info-circle" data-bs-toggle="tooltip" title="Calculada automaticamente"></i></label>
-                                    <input type="number" class="form-control" id="age" readonly placeholder="Auto">
+                                    <input type="number" class="form-control" id="age" name="age" readonly placeholder="Auto">
                                 </div>
                                 <div class="col-md-8 mb-3">
                                     <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
-                                    <input type="email" class="form-control" id="email" required placeholder="seu@email.com">
+                                    <input type="email" class="form-control" id="email" name="email" required placeholder="seu@email.com">
                                     <div class="invalid-feedback">Digite um email válido</div>
                                     <div class="valid-feedback"><i class="bi bi-check-circle"></i> Válido</div>
                                 </div>
                                 <div class="col-md-4 mb-3">
                                     <label for="phone" class="form-label">Telefone <span class="text-danger">*</span></label>
-                                    <input type="tel" class="form-control" id="phone" required placeholder="(99) 99999-9999">
+                                    <input type="tel" class="form-control" id="phone" name="phone" required placeholder="(99) 99999-9999">
                                     <div class="invalid-feedback">Digite um telefone válido</div>
                                     <div class="valid-feedback"><i class="bi bi-check-circle"></i> Válido</div>
                                 </div>
                             </div>
                             <div class="mb-3">
                                 <label for="address" class="form-label">Endereço</label>
-                                <textarea class="form-control" id="address" rows="2" placeholder="Rua, número, bairro, cidade/estado"></textarea>
+                                <textarea class="form-control" id="address" name="address" rows="2" placeholder="Rua, número, bairro, cidade/estado"></textarea>
                                 <small class="text-muted"><span id="addressCount">0</span>/200 caracteres</small>
                             </div>
                             <div class="mb-3">
                                 <label for="objective" class="form-label">Objetivo Profissional</label>
-                                <textarea class="form-control" id="objective" rows="3" placeholder="Descreva seus objetivos profissionais..."></textarea>
+                                <textarea class="form-control" id="objective" name="objective" rows="3" placeholder="Descreva seus objetivos profissionais..."></textarea>
                                 <small class="text-muted"><span id="objectiveCount">0</span>/500 caracteres</small>
                             </div>
                         </div>

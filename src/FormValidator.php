@@ -55,7 +55,7 @@ class FormValidator {
     public function sanitize(array $data): array {
         $sanitized = [];
         // Dados de texto simples
-        $textFields = ['name', 'phone', 'address', 'objective', 'course', 'institution'];
+        $textFields = ['name', 'phone', 'address', 'objective'];
         foreach ($textFields as $field) {
             $sanitized[$field] = isset($data[$field]) ? htmlspecialchars(trim($data[$field]), ENT_QUOTES, 'UTF-8') : '';
         }
@@ -64,9 +64,10 @@ class FormValidator {
         // Datas e números
         $sanitized['dob'] = isset($data['dob']) ? $data['dob'] : '';
         $sanitized['age'] = isset($data['age']) ? intval($data['age']) : 0;
-        $sanitized['graduation_year'] = isset($data['graduation_year']) ? intval($data['graduation_year']) : 0;
-        // Arrays (experiências, referências)
+        
+        // Arrays (formação acadêmica, experiências, referências)
         $arrayFields = [
+            'course', 'institution', 'education_level', 'graduation_year',
             'company', 'position', 'exp_start', 'exp_end', 'exp_description',
             'ref_name', 'ref_position', 'ref_company', 'ref_phone', 'ref_email'
         ];
