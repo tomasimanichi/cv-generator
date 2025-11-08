@@ -5,18 +5,60 @@ Aplicação web para gerar currículos profissionais em PDF, desenvolvida como p
 ## Tecnologias Utilizadas
 
 - PHP 8.0+
-- HTML5, CSS3, JavaScript
+- HTML5, CSS3
+- JavaScript + jQuery
 - Bootstrap 5
 - mPDF (geração de PDF)
 - Composer
+- Git + GitHub
   
+## Funcionalidades
+
+- Formulário responsivo para entrada de dados
+- Cálculo automático de idade
+- Campos dinâmicos para experiências profissionais
+- Campos dinâmicos para referências
+- Validação client-side e server-side
+- Geração de PDF
+- Opção de impressão direta
+
 ## Instalação
 
-1. Clone ou baixe o projeto
-2. Navegue até a pasta do projeto
-3. Execute: `composer install`
-4. Coloque em `C:\xampp\htdocs\cv-generator\`
-5. Acesse: `http://localhost/cv-generator/public/`
+### Pré-requisitos
+
+- XAMPP (PHP 7.4+)
+- Composer
+
+### Passos
+
+1. Clone o repositório:
+
+bash
+git clone https://github.com/tomasimanichi/cv-generator.git
+
+2. Navegue até o diretório: 
+
+bash
+cd cv-generator
+
+3. Instale as dependências:
+
+bash
+composer install
+
+4. Copie para o htdocs do XAMPP:
+
+bash
+# Windows
+cp -r . C:\\xampp\\htdocs\\cv-generator
+
+# Linux
+cp -r . /opt/lampp/htdocs/cv-generator
+
+5. Inicie o Apache no XAMPP
+
+6. Acesse no navegador:
+http://localhost/cv-generator/public/
 
 ## Como usar
 
@@ -26,4 +68,9 @@ Aplicação web para gerar currículos profissionais em PDF, desenvolvida como p
 
 ## Autor
 
-Tomás do Amaral - tomasdoamaral@gmail.com
+**Tomás do Amaral - tomasdoamaral@gmail.com**
+- RA:
+- Curso: Gestão da Tecnologia da Informação
+- Instituição: Unipar EAD
+- Polo: Cascavel
+ 

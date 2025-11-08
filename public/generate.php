@@ -86,7 +86,7 @@ try {
         'erro' => 'Erro ao gerar currículo: ' . $e->getMessage()
     ]);
     
-    // Registrar erro em log (opcional)
+    // Registrar erro em log
     error_log('Erro em generate.php: ' . $e->getMessage());
     exit;
 }
