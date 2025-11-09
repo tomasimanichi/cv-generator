@@ -68,8 +68,8 @@ http://localhost/cv-generator/public/
 
 ## Autor
 
-**Tomás do Amaral - tomasdoamaral@gmail.com**
-- RA:
+**Tomás Imanichi do Amaral - tomasdoamaral@gmail.com**
+- RA: 09052083
 - Curso: Gestão da Tecnologia da Informação
 - Instituição: Unipar EAD
 - Polo: Cascavel
